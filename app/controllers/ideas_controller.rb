@@ -1,10 +1,8 @@
 class IdeasController < ApplicationController
-  before_action :authorize, only: [:destroy, :update, :edit]
+  # before_action :authorize
 
-  # GET /ideas
-  # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = Idea.order(created_at: :desc)
   end
 
   def new

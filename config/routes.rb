@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :ideas, only: [:new, :create]
 
-  root 'welcome#index'
+  root 'ideas#index'
 end

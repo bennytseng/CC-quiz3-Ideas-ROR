@@ -1,0 +1,14 @@
+<h1>Welcome to Idea Factory</h1>
+<hr>
+
+<% @ideas.each do |q| %>
+<strong><%= q.title %></strong>
+<p> <%= q.body %> </p>
+<p>Created By: <%= User.find_by(id: q.user_id).name %></p>
+  q.join
+  q.like
+
+  q.members_count
+  q.likes_count
+<hr>
+<% end %>

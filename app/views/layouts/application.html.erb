@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ideas</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+    <div class="nav">
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><%= link_to "New Idea", new_idea_path %></a></li>
+
+        <% if user_signed_in? %>
+        <li class = "nav-item"><a class="nav-link disabled">Welcome <%= current_user.name %></a>
+        </li>
+        <li role="presentation"><%= link_to "Sign Out", sessions_path, method: :delete %></li>
+        <% else %>
+          <li role="presentation"><a href="/users/new">Sign-Up</a></li>
+          <li role="presentation"><a href="/sessions/new">Sign-In</a></li>
+        <% end %>
+        <hr>
+      </ul>
+    </div>
+
+    <div class="flash-message">
+        <%= flash[:notice] %>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

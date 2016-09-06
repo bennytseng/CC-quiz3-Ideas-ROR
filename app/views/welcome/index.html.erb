@@ -1,0 +1,12 @@
+<h1>Welcome to Idea Factory</h1>
+
+<hr>
+
+<% @ideas.each do |q| %>
+<strong><%= q.title %></strong>
+<p>
+  <%= q.body %>
+</p>
+  <%= q.user %>
+<hr>
+<% end %>

@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  # before_action :authorize
+  before_action :authorize, only: [:new, :createrail]
 
   def index
     @ideas = Idea.order(created_at: :desc)

@@ -6,7 +6,14 @@
 <p> <%= q.body %> </p>
 <p>Created By: <%= User.find_by(id: q.user_id).name %></p>
   q.join
-  q.like
+
+  <!-- <%# user_like = @question.like_for(current_user) %>
+  <%# if user_like.present? %>
+  <%#= link_to "Un-Like", question_like_path(@question, user_like), method: :delete %>
+   <%# else %>
+   <%#= link_to "Like", question_likes_path(@question), method: :post %>
+   <%# end %>
+   (<%#= pluralize @question.likes.count, "like" %>) -->
 
   q.members_count
   q.likes_count

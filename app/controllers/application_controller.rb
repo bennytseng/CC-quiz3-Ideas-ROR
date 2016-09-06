@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to sessions_path unless current_user
   end
+
+  def authenticate_user!
+    redirect_to new_session_path unless user_signed_in?
+  end
 end
